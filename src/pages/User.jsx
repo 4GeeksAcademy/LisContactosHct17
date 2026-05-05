@@ -1,32 +1,50 @@
 import React, { useState } from 'react';
+import Boton from './Boton';
+import miImagen from './imgMujer.jpg';
 
 
-const User = () => {
-    return (
-        <div className="bg-success text-center">
-            <div id="carta-contenedor" className="container bg-white mt-4 shadow" 
-                 style={{ borderRadius: "10px", width: "300px", height: "450px", overflow: "hidden" }}>
-                <div className="row d-flex justify-content-start ps-4 sibul" 
-                     style={{ height: "150px", fontSize: "80px" }}>
-                </div>
-                <div className="row d-flex justify-content-center align-items-center text-center" 
-                     id="cards" style={{ height: "150px", fontSize: "100px" }}>
-                </div>
-                <div className="row d-flex justify-content-end pe-4 sibul text-end" 
-                     style={{ height: "150px", fontSize: "80px" }}>
-                </div>
-            </div>
-            
-            <div className="container d-flex justify-content-center mt-4">
-                <button id="btn-cambiar" className="btn btn-light form-control w-25">Cambiar Carta</button>
-            </div>
-            
-            <div className="container d-flex justify-content-center mt-4">
-                <input type="text" id="inputWidth" className="form-control w-25" placeholder="width" style={{ textAlign: "center" }} />
-                <input type="text" id="inputHeight" className="form-control w-25" placeholder="height" style={{ textAlign: "center" }} />
-            </div>
-        </div>
-    );
-};
+export default function User() {
+  const [lista, setLista] = useState([]);
+  const [tarea, setTarea] = useState('');
 
-export default User;
+  const agregarTarea = (e) => {
+    e.preventDefault();
+    if (tarea.trim() === '') return;
+    setLista([...lista, tarea]);
+    setTarea('');
+  };
+
+  const eliminarTarea = (index) => {
+    const nuevaLista = lista.filter((_, i) => i !== index);
+    setLista(nuevaLista);
+  };
+
+  return (
+    
+    <>
+    <Boton/>
+    <div className='container'>
+        <div className="mt-12 bg- p-6 bg-secundary  rounded-x5 border border-slate-100 d-flex flex-column flex-md-row">
+          
+          <img src={miImagen} className='rounded-circle d-fle align-items-center col-12 col-lg-6 col-md-6 mt-4 ms-4 mb-4'  alt="Logo" style={{width: '150px', height: '150px'}}></img>
+          <div className="col-12 col-lg-3 col-md-3 ms-5 mt-4">
+            <h4>Minerva Garcia</h4>
+            <p>direction</p>
+            <p>telefono</p>
+            <p>Email</p>
+          </div>
+
+           <div className="col-12 col-lg-3 col-md-3 ms-5 mt-4">
+  
+          </div>
+
+          <div className="col-12 col-lg-3 col-md-3 ms-5 mt-4 d-flex gap-3">
+         
+           <div className = 'icon'><button onclick = "addUsername(event)" className='btn'><i className ="fa-solid fa-pencil"></i></button><button onclick = "deleteUsername(event)" className = 'btn'><i className ="fa-solid fa-trash-arrow-up "></i></button></div>
+               
+          </div>
+         </div>
+    </div>
+    </>
+  );
+}
