@@ -29,14 +29,12 @@ export default function User() {
           <img src={miImagen} className='rounded-circle d-fle align-items-center col-12 col-lg-6 col-md-6 mt-4 ms-4 mb-4'  alt="Logo" style={{width: '150px', height: '150px'}}></img>
           <div className="col-12 col-lg-3 col-md-3 ms-5 mt-4">
             <h4>Minerva Garcia</h4>
-            <p>direction</p>
-            <p>telefono</p>
-            <p>Email</p>
+            <p><i class="fa-solid fa-location-dot"></i> direction</p>
+            <p><i class="fa-solid fa-phone"></i> telefono</p>
+            <p><i class="fa-solid fa-at"></i> Email</p>
           </div>
 
-           <div className="col-12 col-lg-3 col-md-3 ms-5 mt-4">
-  
-          </div>
+           <div className="col-12 col-lg-3 col-md-3 ms-5 mt-4"></div>
 
           <div className="col-12 col-lg-3 col-md-3 ms-5 mt-4 d-flex gap-3">
          
